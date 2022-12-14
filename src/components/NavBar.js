@@ -1,26 +1,40 @@
-import { Container, Navbar } from "react-bootstrap"
 
-
-
-
-
-
-
-
-
-export const NavBar = () => {
+export const NavBar = ({ setCurrentPage }) => {
 
     return (
-        <NavBar>
-            <Container>
-                <Navbar.Toggle aria-controls="basic-navbar-nav">
-                    <span className="navbar-toggler-icon"></span>
-                </Navbar.Toggle>
-                <Navbar.Collapse id="basic-navbar-nav">
-                    
-                </Navbar.Collapse>
-            </Container>
-        </NavBar> 
+        <div className="navbar bg-base-100">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                    </label>
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <li>
+                            <a onClick={() => setCurrentPage("")} href="#">
+                                About Me
+                            </a>
+                        </li>
+                        <li>
+                            <a onClick={() => setCurrentPage("Projects")} href="#projects">
+                                Projects
+                            </a>
+                        </li>
+                        <li>
+                            <a onClick={() => setCurrentPage("Contact")} href="#contact">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div className="navbar-center">
+                <a onClick={() => setCurrentPage("")} href="#" className="btn btn-ghost normal-case text-xl">Ryan Charleson</a>
+            </div>
+            <div className="navbar-end">
+
+            </div>
+        </div>
     )
 
 }
